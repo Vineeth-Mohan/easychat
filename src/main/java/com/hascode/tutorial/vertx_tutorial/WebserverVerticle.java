@@ -46,7 +46,7 @@ public class WebserverVerticle extends Verticle {
 			}
 		});
 
-		ESInterface.createInstance("vm", "localhost", "9300", "chats", "chat",logger);
+		ESInterface.createInstance("elasticsearch", "localhost", "9300", "chats", "chat",logger);
 		vertx.createHttpServer().requestHandler(httpRouteMatcher).listen(8080);
 
 		vertx.createHttpServer().websocketHandler(new Handler<ServerWebSocket>() {
